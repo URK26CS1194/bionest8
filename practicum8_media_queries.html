@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BioNest - Media Queries</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: Arial, sans-serif; background:#f5f7f1; color:#1d2b22; font-size:18px; }
+  header { background:#2e5a3c; color:#fff; padding:16px 20px; }
+  header h1 { margin:0; font-size:28px; }
+  nav { display:flex; gap:16px; background:#1f3d2a; padding:10px 20px; }
+  nav a { color:#fff; text-decoration:none; }
+  main { padding:20px; max-width:1000px; margin:auto; }
+  .cards { display:flex; gap:16px; }
+  .card { flex:1; background:#fff; border:1px solid #d8dfd2; border-radius:8px; padding:16px; }
+  .card h2 { margin-top:0; font-size:20px; color:#2e5a3c; }
+  .card button { padding:8px 14px; background:#7fb069; border:0; border-radius:4px; cursor:pointer; }
+  #width { margin-top:16px; font-weight:bold; }
+  footer { text-align:center; padding:16px; color:#555; }
+
+  /* Order matters: larger breakpoint first, smaller breakpoint last */
+  @media (max-width: 768px) {
+    body { font-size:16px; }
+    header h1 { font-size:24px; }
+    .cards { flex-wrap:wrap; }
+    .card { flex:1 1 calc(50% - 16px); }
+  }
+  @media (max-width: 480px) {
+    nav { flex-direction:column; }
+    .cards { flex-direction:column; }
+    .card { flex:1 1 100%; }
+    .card button { width:100%; }
+  }
+  @media (orientation: landscape) and (max-height: 500px) { header { padding:8px 20px; } }
+  @media print { nav, .card button { display:none; } }
+</style>
+</head>
+<body>
+<header><h1>BioNest</h1><div>Biodegradable packaging solutions</div></header>
+<nav><a href="#">Home</a><a href="#">Products</a><a href="#">Sustainability</a><a href="#">Contact</a></nav>
+
+<main>
+  <section class="cards">
+    <article class="card"><h2>Compostable Mailers</h2><p>Strong, waterproof mailers for e-commerce that compost at the end of their life.</p><button>View range</button></article>
+    <article class="card"><h2>Molded Fibre Trays</h2><p>Plant fibre trays for food and electronics, free from plastic coatings.</p><button>View range</button></article>
+    <article class="card"><h2>Plant-based Food Boxes</h2><p>Grease-resistant boxes for takeaway, safe for hot and cold food.</p><button>View range</button></article>
+  </section>
+  <p id="width">Window width: --</p>
+</main>
+<footer>&copy; 2026 BioNest</footer>
+
+<script>
+  const out = document.getElementById("width");
+  function showWidth() { out.innerText = "Window width: " + window.innerWidth + "px"; }
+  window.addEventListener("resize", showWidth);
+  showWidth();
+</script>
+</body>
+</html>
